@@ -255,7 +255,7 @@ module Precious
         format   = ext.split('.').last || 'txt'
         filename = ::File.basename(fullname, ext)
         contents = ::File.read(tempfile)
-        reponame = "#{dir}/#{filename}-#{SecureRandom.uuid}.#{format}"
+        reponame = "#{dir}/#{params[:uuid]}-#{filename}.#{format}"
 
         options = { :message => "Uploaded file to #{reponame}" }
         options[:parent] = wiki.repo.head.commit if wiki.repo.head
